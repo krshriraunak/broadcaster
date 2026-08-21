@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color"
+          content="#05050b">
+
+    <title>World TV 3D</title>
+
+    <!-- HLS PLAYER -->
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+    <!-- 3D BACKGROUND -->
+
+    <div class="background">
+
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+
+        <div class="grid-floor"></div>
+
+    </div>
+
+
+    <!-- HEADER -->
+
+    <header class="topbar">
+
+        <div class="brand">
+
+            <div class="logo-3d">
+
+                <span>▶</span>
+
+            </div>
+
+            <div class="brand-text">
+
+                <h1>World TV</h1>
+
+                <p>
+                    Live television & radio from around the world
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="live">
+
+            <span class="live-dot"></span>
+
+            LIVE
+
+        </div>
+
+    </header>
+
+
+
+    <!-- APPLICATION -->
+
+    <div class="app">
+
+
+        <!-- ================================================
+             COUNTRIES
+             ================================================ -->
+
+        <aside class="panel countries-panel">
+
+            <div class="panel-header">
+
+                <div>
+
+                    <span class="panel-label">
+                        EXPLORE
+                    </span>
+
+                    <h2>
+                        Countries
+                    </h2>
+
+                </div>
+
+                <span
+                    class="count"
+                    id="countryCount">
+                    0
+                </span>
+
+            </div>
+
+
+            <div class="search-box">
+
+                <span class="search-icon">
+                    ⌕
+                </span>
+
+                <input
+                    id="countrySearch"
+                    type="text"
+                    placeholder="Search country..."
+                    autocomplete="off">
+
+            </div>
+
+
+            <div
+                id="countryList"
+                class="list">
+
+                <div class="message">
+
+                    <div class="spinner"></div>
+
+                    Loading countries...
+
+                </div>
+
+            </div>
+
+        </aside>
+
+
+
+        <!-- ================================================
+             CHANNELS
+             ================================================ -->
+
+        <aside class="panel channels-panel">
+
+            <div class="panel-header">
+
+                <div>
+
+                    <span class="panel-label">
+                        BROWSE
+                    </span>
+
+                    <h2 id="countryTitle">
+                        Select Country
+                    </h2>
+
+                </div>
+
+                <span
+                    class="count"
+                    id="channelCount">
+                    0
+                </span>
+
+            </div>
+
+
+            <!-- SEARCH -->
+
+            <div class="search-box">
+
+                <span class="search-icon">
+                    ⌕
+                </span>
+
+                <input
+                    id="channelSearch"
+                    type="text"
+                    placeholder="Search channel..."
+                    autocomplete="off">
+
+            </div>
+
+
+            <!-- TV / RADIO -->
+
+            <div class="media-tabs">
+
+                <button
+                    id="tvTab"
+                    class="media-tab active">
+
+                    <span class="tab-icon">
+                        📺
+                    </span>
+
+                    <span>
+                        TV
+                    </span>
+
+                </button>
+
+
+                <button
+                    id="radioTab"
+                    class="media-tab">
+
+                    <span class="tab-icon">
+                        📻
+                    </span>
+
+                    <span>
+                        RADIO
+                    </span>
+
+                </button>
+
+            </div>
+
+
+            <!-- CHANNEL LIST -->
+
+            <div
+                id="channelList"
+                class="list">
+
+                <div class="message">
+
+                    Select a country
+
+                </div>
+
+            </div>
+
+        </aside>
+
+
+
+        <!-- ================================================
+             PLAYER AREA
+             ================================================ -->
+
+        <main class="content">
+
+
+            <!-- PLAYER -->
+
+            <section class="player-card">
+
+                <div class="player-header">
+
+                    <div>
+
+                        <span class="now-playing">
+                            NOW PLAYING
+                        </span>
+
+                        <h2 id="title">
+                            Select a channel
+                        </h2>
+
+                    </div>
+
+
+                    <button
+                        id="fullscreen"
+                        class="fullscreen"
+                        title="Fullscreen">
+
+                        ⛶
+
+                    </button>
+
+                </div>
+
+
+                <div
+                    id="videoWrap"
+                    class="video-wrap">
+
+                    <video
+                        id="video"
+                        controls
+                        playsinline>
+                    </video>
+
+
+                    <div
+                        id="empty"
+                        class="empty">
+
+                        <div class="big-play">
+
+                            ▶
+
+                        </div>
+
+                        <p id="message">
+                            Select a channel to start watching
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- INFORMATION -->
+
+            <section class="info-card">
+
+                <div class="info-left">
+
+                    <span class="info-label">
+                        CHANNEL
+                    </span>
+
+                    <h3 id="infoTitle">
+                        No channel selected
+                    </h3>
+
+                </div>
+
+
+                <div
+                    class="info-country"
+                    id="infoCountry">
+
+                    —
+
+                </div>
+
+            </section>
+
+
+
+            <!-- FOOTER -->
+
+            <div class="notice">
+
+                <span class="notice-icon">
+                    ◈
+                </span>
+
+                Streams are loaded from public IPTV and
+                Radio Browser sources. Availability may vary.
+
+            </div>
+
+
+        </main>
+
+    </div>
+    <!-- JAVASCRIPT -->
+    <script src="script.js"></script>
+</body>
+
+</html>
